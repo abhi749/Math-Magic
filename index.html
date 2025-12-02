@@ -901,9 +901,23 @@
     if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       recognition = new SpeechRecognition();
-      recognition.lang = 'en-US'; // works fine for English/Hinglish
       recognition.interimResults = false;
       recognition.maxAlternatives = 1;
+      
+      // Function to update recognition language based on selected language
+      function updateRecognitionLanguage() {
+        if (recognition) {
+          const selectedLang = languageSelect.value;
+          // Use appropriate language code
+          recognition.lang = selectedLang === 'hi' ? 'hi-IN' : 'en-US';
+        }
+      }
+      
+      // Set initial language
+      updateRecognitionLanguage();
+      
+      // Update language when user changes selection
+      languageSelect.addEventListener('change', updateRecognitionLanguage);
     } else {
       // Browser not supported; disable mic buttons
       divisionMicBtn.disabled = true;
@@ -913,10 +927,34 @@
     }
 
     function extractTwoNumbers(text) {
-      // Very simple: grab any digits in the speech result
+      // Handle both English digits and Hindi/Devanagari number words
       const nums = text.match(/\d+/g);
-      if (!nums || nums.length < 2) return null;
-      return [parseInt(nums[0], 10), parseInt(nums[1], 10)];
+      
+      // Also try to extract Hindi number words
+      const hindiNumbers = {
+        'शून्य': 0, 'एक': 1, 'दो': 2, 'तीन': 3, 'चार': 4, 'पांच': 5, 'छह': 6, 'सात': 7, 'आठ': 8, 'नौ': 9,
+        'दस': 10, 'ग्यारह': 11, 'बारह': 12, 'तेरह': 13, 'चौदह': 14, 'पंद्रह': 15, 'सोलह': 16, 'सत्रह': 17, 'अठारह': 18, 'उन्नीस': 19,
+        'बीस': 20, 'तीस': 30, 'चालीस': 40, 'पचास': 50, 'साठ': 60, 'सत्तर': 70, 'अस्सी': 80, 'नब्बे': 90, 'सौ': 100
+      };
+      
+      let extractedNums = [];
+      
+      // First, try to get numeric digits
+      if (nums && nums.length >= 2) {
+        extractedNums = [parseInt(nums[0], 10), parseInt(nums[1], 10)];
+      } else {
+        // Try to extract Hindi number words
+        const words = text.split(/\s+/);
+        for (let word of words) {
+          const cleaned = word.trim().toLowerCase();
+          if (hindiNumbers[cleaned] !== undefined) {
+            extractedNums.push(hindiNumbers[cleaned]);
+          }
+        }
+      }
+      
+      if (extractedNums.length < 2) return null;
+      return [extractedNums[0], extractedNums[1]];
     }
 
     function startDivisionSpeech() {
