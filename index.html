@@ -24,7 +24,7 @@
 
     .app {
       width: 100%;
-      max-width: 960px;
+      max-width: 950px;
       background: #ffffff;
       border-radius: 16px;
       box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
@@ -37,11 +37,11 @@
       gap: 16px;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .title-block h1 {
-      font-size: 1.9rem;
+      font-size: 1.8rem;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -60,81 +60,6 @@
       border-radius: 999px;
       font-size: 0.8rem;
       font-weight: 600;
-    }
-
-    .header-right {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      align-items: flex-end;
-    }
-
-    .language-select {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.85rem;
-      background: #f3f4f6;
-      padding: 4px 8px;
-      border-radius: 999px;
-    }
-
-    .language-select select {
-      border-radius: 999px;
-      border: 1px solid #d1d5db;
-      padding: 2px 8px;
-      font-size: 0.85rem;
-      background: white;
-      outline: none;
-    }
-
-    .tabs {
-      display: inline-flex;
-      border-radius: 999px;
-      background: #e5e7eb;
-      padding: 4px;
-      gap: 4px;
-      margin-top: 10px;
-    }
-
-    .tab {
-      border-radius: 999px;
-      padding: 6px 14px;
-      font-size: 0.9rem;
-      border: none;
-      cursor: pointer;
-      background: transparent;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .tab.active {
-      background: #2563eb;
-      color: #ffffff;
-    }
-
-    .card {
-      background: #f9fafb;
-      border-radius: 14px;
-      padding: 16px 16px 18px;
-      margin-bottom: 16px;
-      border: 1px solid #e5e7eb;
-    }
-
-    .card h2 {
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .card p.subtitle {
-      font-size: 0.9rem;
-      color: #6b7280;
-      margin-bottom: 12px;
     }
 
     .mascot-card {
@@ -168,12 +93,85 @@
       color: #4b5563;
     }
 
+    .top-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      margin-bottom: 10px;
+    }
+
+    .tabs {
+      display: inline-flex;
+      border-radius: 999px;
+      background: #e5e7eb;
+      padding: 4px;
+      gap: 4px;
+    }
+
+    .tab {
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      border: none;
+      cursor: pointer;
+      background: transparent;
+      font-weight: 500;
+    }
+
+    .tab.active {
+      background: #2563eb;
+      color: #ffffff;
+    }
+
+    .lang-select {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+    }
+
+    .lang-select label {
+      color: #4b5563;
+    }
+
+    .lang-select select {
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      font-size: 0.85rem;
+      background: #f9fafb;
+    }
+
+    .card {
+      background: #f9fafb;
+      border-radius: 14px;
+      padding: 16px 16px 18px;
+      margin-bottom: 16px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card p.subtitle {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 12px;
+    }
+
     .input-row {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       margin-bottom: 12px;
-      align-items: flex-end;
     }
 
     .field {
@@ -206,10 +204,10 @@
 
     .btn-row {
       display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 4px;
       flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-top: 4px;
     }
 
     button.calculate-btn {
@@ -235,26 +233,28 @@
       box-shadow: 0 3px 8px rgba(37, 99, 235, 0.4);
     }
 
+    .mic-btn {
+      background: #fef3c7;
+      color: #92400e;
+      border-radius: 999px;
+      border: 1px solid #facc15;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .mic-btn[disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
     .hint-text {
       font-size: 0.8rem;
       color: #6b7280;
-    }
-
-    .mic-btn {
-      border-radius: 999px;
-      border: none;
-      padding: 6px 10px;
-      font-size: 1rem;
-      cursor: pointer;
-      background: #fee2e2;
-      color: #b91c1c;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .mic-btn span {
-      font-size: 0.8rem;
     }
 
     .result-section {
@@ -323,20 +323,17 @@
       font-size: 0.85rem;
     }
 
-    .panel {
-      /* just for clarity if needed later */
-    }
-
     @media (max-width: 600px) {
       .app {
         padding: 18px 14px 20px;
       }
 
       .title-block h1 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
       }
 
-      .header-right {
+      .top-controls {
+        flex-direction: column;
         align-items: flex-start;
       }
     }
@@ -346,46 +343,40 @@
   <div class="app">
     <header class="app-header">
       <div class="title-block">
-        <h1 id="siteTitle">🪄 Math Magic</h1>
-        <p id="siteSubtitle">Play with division and times tables — made by kids, for kids!</p>
-
-        <div class="tabs">
-          <button class="tab active" type="button" data-panel="division" id="tabDivision">
-            ➗ <span id="tabDivisionLabel">Division</span>
-          </button>
-          <button class="tab" type="button" data-panel="tables" id="tabTables">
-            ✖️ <span id="tabTablesLabel">Times Tables</span>
-          </button>
-        </div>
-
-        <div class="card mascot-card">
-          <div class="mascot-emoji">🤖</div>
-          <div class="mascot-text">
-            <div class="mascot-title" id="mascotTitle">Hi, I'm Digi!</div>
-            <div class="mascot-subtitle" id="mascotSubtitle">
-              Your little math buddy to explore numbers, division, and tables. ✨
-            </div>
-          </div>
-        </div>
+        <h1 id="appTitle">🪄 Math Magic</h1>
+        <p id="appSubtitle">Practice division and times tables with a friendly math buddy.</p>
       </div>
-
-      <div class="header-right">
-        <div class="badge" id="badgeText">
-          Built for kids 7–9 👧🧑🧠
-        </div>
-        <div class="language-select">
-          <span>🌐</span>
-          <label for="languageSelect" id="languageLabel">Language:</label>
-          <select id="languageSelect">
-            <option value="en">English</option>
-            <option value="hi">हिन्दी (Hindi)</option>
-          </select>
-        </div>
+      <div class="badge">
+        Built for kids 7–9 👧🧑🧠
       </div>
     </header>
 
-    <!-- DIVISION PANEL -->
-    <section class="card panel" id="panel-division">
+    <div class="mascot-card">
+      <div class="mascot-emoji">🤖</div>
+      <div class="mascot-text">
+        <div class="mascot-title" id="mascotTitle">Hi, I'm Digi!</div>
+        <div class="mascot-subtitle" id="mascotSubtitle">
+          I help you explore numbers, division, and multiplication. ✨
+        </div>
+      </div>
+    </div>
+
+    <div class="top-controls">
+      <div class="tabs">
+        <button class="tab active" id="tabDivision" type="button">➗ Division</button>
+        <button class="tab" id="tabMultiply" type="button">✖️ Times Tables</button>
+      </div>
+      <div class="lang-select">
+        <label for="languageSelect" id="languageLabel">🌍 Language</label>
+        <select id="languageSelect">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी (Hindi)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- DIVISION SECTION -->
+    <section class="card" id="divisionSection">
       <h2 id="divisionTitle">Step 1: Enter your division problem ✏️</h2>
       <p class="subtitle" id="divisionSubtitle">
         Choose a number to share and how many equal groups you want.
@@ -400,174 +391,217 @@
           <label for="divisor" id="divisorLabel">Number of groups (divisor)</label>
           <input type="number" id="divisor" placeholder="e.g. 4" min="1">
         </div>
-        <button class="mic-btn" id="micDividend" type="button" title="Speak the number">
-          🎤 <span id="micLabel">Say number</span>
-        </button>
       </div>
 
       <div class="btn-row">
-        <button class="calculate-btn" id="calculateBtn" type="button">
-          <span id="divisionButtonText">Show division</span>
+        <button class="calculate-btn" id="divisionCalcBtn" type="button">
+          Calculate
+        </button>
+        <button class="mic-btn" id="divisionMicBtn" type="button">
+          🎙 Speak division
         </button>
         <span class="hint-text" id="divisionHint">
-          Try a big number like 250 or 275 too.
+          Try saying “100 divided by 4”.
         </span>
       </div>
-      <div id="error" class="error" style="display:none;"></div>
-    </section>
 
-    <section class="card panel" id="panel-division-step2">
-      <h2 id="step2Title">Step 2: See the answer & story 💡</h2>
-      <p class="subtitle" id="step2Subtitle">
-        We’ll show you the answer, the matching times-table fact, and all the factor pairs.
-      </p>
+      <div id="divisionError" class="error" style="display:none;"></div>
 
-      <div id="result" class="result-section" style="display:none;">
+      <div id="divisionResult" class="result-section" style="display:none;">
         <div class="result-main">
-          <span id="resultLabel">Result:</span>
-          <span class="equation" id="equationText"></span>
+          <span id="divisionResultLabel">Result:</span>
+          <span class="equation" id="divisionEquation"></span>
         </div>
-        <div class="result-sentence" id="storyText"></div>
-        <div class="result-sentence" id="timesText"></div>
+        <div class="result-sentence" id="divisionStory"></div>
+        <div class="result-sentence" id="divisionTimes"></div>
       </div>
 
       <div id="factors" class="factor-section" style="display:none; margin-top:10px;">
         <h3 id="factorTitle">All factor pairs of your number 🔍</h3>
-        <p id="factorSubtitle" style="margin-bottom:4px; font-size:0.85rem; color:#6b7280;">
+        <p style="margin-bottom:4px; font-size:0.85rem; color:#6b7280;" id="factorSubtitle">
           These are all the ways to multiply two whole numbers to reach your starting number.
         </p>
         <div id="factorList" class="factor-list"></div>
       </div>
     </section>
 
-    <!-- TIMES TABLES PANEL -->
-    <section class="card panel" id="panel-tables" style="display:none;">
-      <h2 id="tablesTitle">Step 3: Explore times tables ✖️</h2>
-      <p class="subtitle" id="tablesSubtitle">
-        Pick a number and see its multiplication table.
+    <!-- MULTIPLICATION SECTION -->
+    <section class="card" id="multiplySection" style="display:none;">
+      <h2 id="multiplyTitle">Times tables: build a multiplication fact ✖️</h2>
+      <p class="subtitle" id="multiplySubtitle">
+        Pick two numbers and see the multiplication. Great for practicing tables!
       </p>
 
       <div class="input-row">
         <div class="field">
-          <label for="ttNumber" id="ttNumberLabel">Table of (number)</label>
-          <input type="number" id="ttNumber" placeholder="e.g. 5" min="1">
+          <label for="multiplicand" id="multiplicandLabel">First number</label>
+          <input type="number" id="multiplicand" placeholder="e.g. 12" min="0">
         </div>
         <div class="field">
-          <label for="ttLimit" id="ttLimitLabel">Up to (times)</label>
-          <input type="number" id="ttLimit" placeholder="e.g. 10" min="1" value="10">
+          <label for="multiplier" id="multiplierLabel">Second number</label>
+          <input type="number" id="multiplier" placeholder="e.g. 7" min="0">
         </div>
       </div>
 
       <div class="btn-row">
-        <button class="calculate-btn" id="ttBtn" type="button">
-          <span id="ttButtonText">Show table</span>
+        <button class="calculate-btn" id="multiplyCalcBtn" type="button">
+          Calculate
         </button>
+        <button class="mic-btn" id="multiplyMicBtn" type="button">
+          🎙 Speak times table
+        </button>
+        <span class="hint-text" id="multiplyHint">
+          Try saying “12 times 7”.
+        </span>
       </div>
 
-      <div id="ttError" class="error" style="display:none;"></div>
+      <div id="multiplyError" class="error" style="display:none;"></div>
 
-      <div id="ttResult" class="factor-section" style="display:none; margin-top:10px;">
-        <h3 id="ttResultTitle">Your times table</h3>
-        <div id="ttList" class="factor-list"></div>
+      <div id="multiplyResult" class="result-section" style="display:none;">
+        <div class="result-main">
+          <span id="multiplyResultLabel">Result:</span>
+          <span class="equation" id="multiplyEquation"></span>
+        </div>
+        <div class="result-sentence" id="multiplyStory"></div>
       </div>
     </section>
   </div>
 
   <script>
-    // ---------- ELEMENTS ----------
-    const dividendInput = document.getElementById('dividend');
-    const divisorInput = document.getElementById('divisor');
-    const calculateBtn = document.getElementById('calculateBtn');
-    const errorBox = document.getElementById('error');
-
-    const resultBox = document.getElementById('result');
-    const equationText = document.getElementById('equationText');
-    const storyText = document.getElementById('storyText');
-    const timesText = document.getElementById('timesText');
-
-    const factorsBox = document.getElementById('factors');
-    const factorList = document.getElementById('factorList');
-
-    const tabs = document.querySelectorAll('.tab[data-panel]');
-    const panels = document.querySelectorAll('.panel');
+    // ---------- ELEMENT REFERENCES ----------
+    const tabDivision = document.getElementById('tabDivision');
+    const tabMultiply = document.getElementById('tabMultiply');
+    const divisionSection = document.getElementById('divisionSection');
+    const multiplySection = document.getElementById('multiplySection');
 
     const languageSelect = document.getElementById('languageSelect');
 
-    const micDividend = document.getElementById('micDividend');
+    // Division elements
+    const dividendInput = document.getElementById('dividend');
+    const divisorInput = document.getElementById('divisor');
+    const divisionCalcBtn = document.getElementById('divisionCalcBtn');
+    const divisionMicBtn = document.getElementById('divisionMicBtn');
+    const divisionError = document.getElementById('divisionError');
+    const divisionResult = document.getElementById('divisionResult');
+    const divisionEquation = document.getElementById('divisionEquation');
+    const divisionStory = document.getElementById('divisionStory');
+    const divisionTimes = document.getElementById('divisionTimes');
+    const factorsBox = document.getElementById('factors');
+    const factorList = document.getElementById('factorList');
 
-    // Times table elements
-    const ttNumberInput = document.getElementById('ttNumber');
-    const ttLimitInput = document.getElementById('ttLimit');
-    const ttBtn = document.getElementById('ttBtn');
-    const ttError = document.getElementById('ttError');
-    const ttResult = document.getElementById('ttResult');
-    const ttList = document.getElementById('ttList');
+    // Multiplication elements
+    const multiplicandInput = document.getElementById('multiplicand');
+    const multiplierInput = document.getElementById('multiplier');
+    const multiplyCalcBtn = document.getElementById('multiplyCalcBtn');
+    const multiplyMicBtn = document.getElementById('multiplyMicBtn');
+    const multiplyError = document.getElementById('multiplyError');
+    const multiplyResult = document.getElementById('multiplyResult');
+    const multiplyEquation = document.getElementById('multiplyEquation');
+    const multiplyStory = document.getElementById('multiplyStory');
 
-    // ---------- LANGUAGE SUPPORT (EN + HI) ----------
+    // Text elements for translation
     const translations = {
       en: {
-        siteTitle: '🪄 Math Magic',
-        siteSubtitle: 'Play with division and times tables — made by kids, for kids!',
-        tabDivisionLabel: 'Division',
-        tabTablesLabel: 'Times Tables',
+        appTitle: "🪄 Math Magic",
+        appSubtitle: "Practice division and times tables with a friendly math buddy.",
         mascotTitle: "Hi, I'm Digi!",
-        mascotSubtitle: 'Your little math buddy to explore numbers, division, and tables. ✨',
-        badgeText: 'Built for kids 7–9 👧🧑🧠',
-        languageLabel: 'Language:',
-        divisionTitle: 'Step 1: Enter your division problem ✏️',
-        divisionSubtitle: 'Choose a number to share and how many equal groups you want.',
-        dividendLabel: 'Number to share (dividend)',
-        divisorLabel: 'Number of groups (divisor)',
-        micLabel: 'Say number',
-        divisionButtonText: 'Show division',
-        divisionHint: 'Try a big number like 250 or 275 too.',
-        step2Title: 'Step 2: See the answer & story 💡',
-        step2Subtitle: "We’ll show you the answer, the matching times-table fact, and all the factor pairs.",
-        resultLabel: 'Result:',
-        factorTitle: 'All factor pairs of your number 🔍',
-        factorSubtitle: 'These are all the ways to multiply two whole numbers to reach your starting number.',
-        tablesTitle: 'Step 3: Explore times tables ✖️',
-        tablesSubtitle: 'Pick a number and see its multiplication table.',
-        ttNumberLabel: 'Table of (number)',
-        ttLimitLabel: 'Up to (times)',
-        ttButtonText: 'Show table',
-        ttResultTitle: 'Your times table'
+        mascotSubtitle: "I help you explore numbers, division, and multiplication. ✨",
+        languageLabel: "🌍 Language",
+        divisionTitle: "Step 1: Enter your division problem ✏️",
+        divisionSubtitle: "Choose a number to share and how many equal groups you want.",
+        dividendLabel: "Number to share (dividend)",
+        divisorLabel: "Number of groups (divisor)",
+        divisionHint: "Try saying “100 divided by 4”.",
+        divisionResultLabel: "Result:",
+        factorTitle: "All factor pairs of your number 🔍",
+        factorSubtitle: "These are all the ways to multiply two whole numbers to reach your starting number.",
+        multiplyTitle: "Times tables: build a multiplication fact ✖️",
+        multiplySubtitle: "Pick two numbers and see the multiplication. Great for practicing tables!",
+        multiplicandLabel: "First number",
+        multiplierLabel: "Second number",
+        multiplyHint: "Try saying “12 times 7”.",
+        multiplyResultLabel: "Result:",
+        errors: {
+          bothNumbers: "Please enter both numbers.",
+          positive: "Please use positive numbers greater than zero."
+        },
+        divisionStoryNoRemainder: (dividend, divisor, quotient) =>
+          `If you share ${dividend} into ${divisor} equal groups, each group gets ${quotient}.`,
+        divisionStoryRemainder: (dividend, divisor, quotient, remainder) =>
+          `If you share ${dividend} into ${divisor} equal groups, each group gets ${quotient} and ${remainder} is left over.`,
+        divisionTimesNoRemainder: (divisor, quotient, dividend) =>
+          `${divisor} × ${quotient} = ${dividend}`,
+        divisionTimesRemainder: (divisor, quotient, dividend) =>
+          `Because there is a remainder, ${divisor} × ${quotient} is only ${divisor * quotient}, not ${dividend}.`,
+        multiplyStory: (a, b, product) =>
+          `${a} × ${b} = ${product}.`
       },
       hi: {
-        siteTitle: '🪄 Math Magic (गणित जादू)',
-        siteSubtitle: 'भाग और पहाड़ों के साथ खेलें — बच्चों द्वारा, बच्चों के लिए!',
-        tabDivisionLabel: 'भाग (Division)',
-        tabTablesLabel: 'पहाड़े (Times Tables)',
-        mascotTitle: 'नमस्ते, मैं डिज़ी हूँ!',
-        mascotSubtitle: 'मैं तुम्हारा छोटा गणित दोस्त हूँ — चलो मिलकर संख्या सीखें। ✨',
-        badgeText: '7–9 साल के बच्चों के लिए 👧🧑🧠',
-        languageLabel: 'भाषा:',
-        divisionTitle: 'पहला कदम: अपना भाग का सवाल लिखो ✏️',
-        divisionSubtitle: 'जिस संख्या को बाँटना है और कितने बराबर हिस्सों में बाँटना है, वो लिखो।',
-        dividendLabel: 'जिस संख्या को बाँटना है',
-        divisorLabel: 'बराबर हिस्सों की संख्या',
-        micLabel: 'नंबर बोलो',
-        divisionButtonText: 'भाग दिखाओ',
-        divisionHint: '250 या 275 जैसी बड़ी संख्या भी आज़मा कर देखो।',
-        step2Title: 'दूसरा कदम: उत्तर और कहानी देखो 💡',
-        step2Subtitle: 'हम उत्तर, उससे जुड़ा पहाड़ा और सभी गुणनखंड दिखाएँगे।',
-        resultLabel: 'उत्तर:',
-        factorTitle: 'तुम्हारी संख्या के सारे गुणनखंड 🔍',
-        factorSubtitle: 'ये वे सभी तरीके हैं जिनसे दो संख्याओं को गुणा करके तुम्हारी संख्या बनती है।',
-        tablesTitle: 'तीसरा कदम: पहाड़ा देखो ✖️',
-        tablesSubtitle: 'कोई संख्या चुनो और उसका पहाड़ा देखो।',
-        ttNumberLabel: 'किस संख्या का पहाड़ा',
-        ttLimitLabel: 'किस तक (कितनी बार)',
-        ttButtonText: 'पहाड़ा दिखाओ',
-        ttResultTitle: 'तुम्हारा पहाड़ा'
+        appTitle: "🪄 मैथ मैजिक",
+        appSubtitle: "मज़ेदार तरीके से भाग और पहाड़े की प्रैक्टिस करें।",
+        mascotTitle: "नमस्ते, मैं डिगी हूँ!",
+        mascotSubtitle: "मैं तुम्हें नंबर, भाग और गुणा सीखने में मदद करता हूँ। ✨",
+        languageLabel: "🌍 भाषा",
+        divisionTitle: "कदम 1: अपना भाग का सवाल लिखो ✏️",
+        divisionSubtitle: "जिस संख्या को बाँटना है और कितने बराबर भाग चाहिए, वो चुनो।",
+        dividendLabel: "जिस संख्या को बाँटना है",
+        divisorLabel: "कितने भाग (ग्रुप)",
+        divisionHint: "ऐसे बोलकर देखो: “100 divided by 4”.",
+        divisionResultLabel: "उत्तर:",
+        factorTitle: "तुम्हारी संख्या के सभी गुणनखंड 🔍",
+        factorSubtitle: "ये सभी तरीके हैं जिनसे दो पूर्ण संख्या को गुणा करके तुम्हारी संख्या बनती है।",
+        multiplyTitle: "पहाड़े: गुणा का सवाल बनाओ ✖️",
+        multiplySubtitle: "दो संख्याएँ चुनो और उनका गुणा देखो। पहाड़ा प्रैक्टिस के लिए बढ़िया!",
+        multiplicandLabel: "पहली संख्या",
+        multiplierLabel: "दूसरी संख्या",
+        multiplyHint: "ऐसे बोलकर देखो: “12 times 7”.",
+        multiplyResultLabel: "उत्तर:",
+        errors: {
+          bothNumbers: "कृपया दोनों संख्या लिखें।",
+          positive: "कृपया शून्य से बड़ी धनात्मक संख्या का उपयोग करें।"
+        },
+        divisionStoryNoRemainder: (dividend, divisor, quotient) =>
+          `${dividend} को ${divisor} बराबर भागों में बाँटोगे तो हर भाग में ${quotient} आएगा।`,
+        divisionStoryRemainder: (dividend, divisor, quotient, remainder) =>
+          `${dividend} को ${divisor} भागों में बाँटोगे तो हर भाग में ${quotient} आएगा और ${remainder} बच जाएगा।`,
+        divisionTimesNoRemainder: (divisor, quotient, dividend) =>
+          `${divisor} × ${quotient} = ${dividend}`,
+        divisionTimesRemainder: (divisor, quotient, dividend) =>
+          `क्योंकि बाकी बचता है, इसलिए ${divisor} × ${quotient} = ${divisor * quotient} है, ${dividend} नहीं।`,
+        multiplyStory: (a, b, product) =>
+          `${a} × ${b} = ${product}।`
       }
+    };
+
+    const textIds = {
+      appTitle: 'appTitle',
+      appSubtitle: 'appSubtitle',
+      mascotTitle: 'mascotTitle',
+      mascotSubtitle: 'mascotSubtitle',
+      languageLabel: 'languageLabel',
+      divisionTitle: 'divisionTitle',
+      divisionSubtitle: 'divisionSubtitle',
+      dividendLabel: 'dividendLabel',
+      divisorLabel: 'divisorLabel',
+      divisionHint: 'divisionHint',
+      divisionResultLabel: 'divisionResultLabel',
+      factorTitle: 'factorTitle',
+      factorSubtitle: 'factorSubtitle',
+      multiplyTitle: 'multiplyTitle',
+      multiplySubtitle: 'multiplySubtitle',
+      multiplicandLabel: 'multiplicandLabel',
+      multiplierLabel: 'multiplierLabel',
+      multiplyHint: 'multiplyHint',
+      multiplyResultLabel: 'multiplyResultLabel'
     };
 
     function applyLanguage(lang) {
       const t = translations[lang] || translations.en;
-      for (const [id, text] of Object.entries(t)) {
-        const el = document.getElementById(id);
-        if (el) el.textContent = text;
+      for (const key in textIds) {
+        const el = document.getElementById(textIds[key]);
+        if (el && t[key]) {
+          el.textContent = t[key];
+        }
       }
     }
 
@@ -575,71 +609,74 @@
       applyLanguage(languageSelect.value);
     });
 
+    // Initialize language
+    applyLanguage('en');
+
+    // ---------- TAB SWITCHING ----------
+    tabDivision.addEventListener('click', () => {
+      tabDivision.classList.add('active');
+      tabMultiply.classList.remove('active');
+      divisionSection.style.display = '';
+      multiplySection.style.display = 'none';
+    });
+
+    tabMultiply.addEventListener('click', () => {
+      tabMultiply.classList.add('active');
+      tabDivision.classList.remove('active');
+      multiplySection.style.display = '';
+      divisionSection.style.display = 'none';
+    });
+
     // ---------- DIVISION LOGIC ----------
     function clearDivisionOutputs() {
-      errorBox.style.display = 'none';
-      errorBox.textContent = '';
-      resultBox.style.display = 'none';
+      divisionError.style.display = 'none';
+      divisionError.textContent = '';
+      divisionResult.style.display = 'none';
       factorsBox.style.display = 'none';
-      equationText.textContent = '';
-      storyText.textContent = '';
-      timesText.textContent = '';
+      divisionEquation.textContent = '';
+      divisionStory.textContent = '';
+      divisionTimes.textContent = '';
       factorList.innerHTML = '';
     }
 
     function calculateDivision() {
       clearDivisionOutputs();
+      const lang = languageSelect.value;
+      const t = translations[lang];
 
       const dividend = parseInt(dividendInput.value, 10);
       const divisor = parseInt(divisorInput.value, 10);
 
       if (isNaN(dividend) || isNaN(divisor)) {
-        errorBox.style.display = 'block';
-        errorBox.textContent = languageSelect.value === 'hi'
-          ? 'कृपया दोनों नंबर लिखें।'
-          : 'Please enter both numbers.';
+        divisionError.style.display = 'block';
+        divisionError.textContent = t.errors.bothNumbers;
         return;
       }
       if (dividend <= 0 || divisor <= 0) {
-        errorBox.style.display = 'block';
-        errorBox.textContent = languageSelect.value === 'hi'
-          ? 'कृपया शून्य से बड़े पॉज़िटिव नंबर ही इस्तेमाल करें।'
-          : 'Please use positive numbers greater than zero.';
+        divisionError.style.display = 'block';
+        divisionError.textContent = t.errors.positive;
         return;
       }
 
       const quotient = Math.floor(dividend / divisor);
       const remainder = dividend % divisor;
 
-      // Main equation
-      const eq = `${dividend} ÷ ${divisor} = ${quotient}` + (remainder ? ` (remainder ${remainder})` : '');
-      equationText.textContent = eq;
+      const eq = `${dividend} ÷ ${divisor} = ${quotient}` +
+        (remainder ? ` (remainder ${remainder})` : '');
+      divisionEquation.textContent = eq;
 
-      // Story sentence
-      let story;
-      if (languageSelect.value === 'hi') {
-        story = remainder === 0
-          ? `${dividend} को अगर ${divisor} बराबर हिस्सों में बाँटें, तो हर हिस्से में ${quotient} आएगा।`
-          : `${dividend} को अगर ${divisor} बराबर हिस्सों में बाँटें, तो हर हिस्से में ${quotient} आएगा और ${remainder} बच जाएगा।`;
-      } else {
-        story = remainder === 0
-          ? `If you share ${dividend} into ${divisor} equal groups, each group gets ${quotient}.`
-          : `If you share ${dividend} into ${divisor} equal groups, each group gets ${quotient} and ${remainder} is left over.`;
-      }
-      storyText.textContent = story;
+      const story = remainder === 0
+        ? t.divisionStoryNoRemainder(dividend, divisor, quotient)
+        : t.divisionStoryRemainder(dividend, divisor, quotient, remainder);
+      divisionStory.textContent = story;
 
-      // Times-table connection
       if (remainder === 0) {
-        timesText.textContent = `${divisor} × ${quotient} = ${dividend}`;
+        divisionTimes.textContent = t.divisionTimesNoRemainder(divisor, quotient, dividend);
       } else {
-        if (languageSelect.value === 'hi') {
-          timesText.textContent = `क्योंकि बाकी बचा है, इस लिए ${divisor} × ${quotient} सिर्फ ${divisor * quotient} होता है, ${dividend} नहीं।`;
-        } else {
-          timesText.textContent = `Because there is a remainder, ${divisor} × ${quotient} is only ${divisor * quotient}, not ${dividend}.`;
-        }
+        divisionTimes.textContent = t.divisionTimesRemainder(divisor, quotient, dividend);
       }
 
-      resultBox.style.display = 'block';
+      divisionResult.style.display = 'block';
 
       // Factor pairs
       const n = dividend;
@@ -681,129 +718,136 @@
       factorsBox.style.display = 'block';
     }
 
-    calculateBtn.addEventListener('click', calculateDivision);
-    dividendInput.addEventListener('keypress', function (e) {
+    divisionCalcBtn.addEventListener('click', calculateDivision);
+    dividendInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') calculateDivision();
     });
-    divisorInput.addEventListener('keypress', function (e) {
+    divisorInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') calculateDivision();
     });
 
-    // ---------- TIMES TABLE LOGIC ----------
-    function clearTableOutputs() {
-      ttError.style.display = 'none';
-      ttError.textContent = '';
-      ttResult.style.display = 'none';
-      ttList.innerHTML = '';
+    // ---------- MULTIPLICATION LOGIC ----------
+    function clearMultiplyOutputs() {
+      multiplyError.style.display = 'none';
+      multiplyError.textContent = '';
+      multiplyResult.style.display = 'none';
+      multiplyEquation.textContent = '';
+      multiplyStory.textContent = '';
     }
 
-    function calculateTable() {
-      clearTableOutputs();
+    function calculateMultiply() {
+      clearMultiplyOutputs();
+      const lang = languageSelect.value;
+      const t = translations[lang];
 
-      const n = parseInt(ttNumberInput.value, 10);
-      const limit = parseInt(ttLimitInput.value, 10);
+      const a = parseInt(multiplicandInput.value, 10);
+      const b = parseInt(multiplierInput.value, 10);
 
-      if (isNaN(n) || isNaN(limit)) {
-        ttError.style.display = 'block';
-        ttError.textContent = languageSelect.value === 'hi'
-          ? 'कृपया दोनों जगह नंबर लिखें।'
-          : 'Please enter both numbers.';
+      if (isNaN(a) || isNaN(b)) {
+        multiplyError.style.display = 'block';
+        multiplyError.textContent = t.errors.bothNumbers;
         return;
       }
-      if (n <= 0 || limit <= 0) {
-        ttError.style.display = 'block';
-        ttError.textContent = languageSelect.value === 'hi'
-          ? 'कृपया शून्य से बड़े पॉज़िटिव नंबर ही इस्तेमाल करें।'
-          : 'Please use positive numbers greater than zero.';
+      if (a < 0 || b < 0) {
+        multiplyError.style.display = 'block';
+        multiplyError.textContent = t.errors.positive;
         return;
       }
 
-      for (let i = 1; i <= limit; i++) {
-        const item = document.createElement('div');
-        item.className = 'factor-item';
-        item.textContent = `${n} × ${i} = ${n * i}`;
-        ttList.appendChild(item);
-      }
-
-      ttResult.style.display = 'block';
+      const product = a * b;
+      const eq = `${a} × ${b} = ${product}`;
+      multiplyEquation.textContent = eq;
+      multiplyStory.textContent = t.multiplyStory(a, b, product);
+      multiplyResult.style.display = 'block';
     }
 
-    ttBtn.addEventListener('click', calculateTable);
-    ttNumberInput.addEventListener('keypress', function (e) {
-      if (e.key === 'Enter') calculateTable();
+    multiplyCalcBtn.addEventListener('click', calculateMultiply);
+    multiplicandInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') calculateMultiply();
     });
-    ttLimitInput.addEventListener('keypress', function (e) {
-      if (e.key === 'Enter') calculateTable();
-    });
-
-    // ---------- TAB SWITCHING ----------
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const target = tab.dataset.panel;
-
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-
-        panels.forEach(panel => {
-          if (target === 'division') {
-            // show both division cards, hide tables
-            if (panel.id === 'panel-division' || panel.id === 'panel-division-step2') {
-              panel.style.display = 'block';
-            } else if (panel.id === 'panel-tables') {
-              panel.style.display = 'none';
-            }
-          } else if (target === 'tables') {
-            if (panel.id === 'panel-tables') {
-              panel.style.display = 'block';
-            } else {
-              panel.style.display = 'none';
-            }
-          }
-        });
-      });
+    multiplierInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') calculateMultiply();
     });
 
-    // ---------- SIMPLE VOICE INPUT (MIC) ----------
+    // ---------- SPEECH RECOGNITION ----------
     let recognition = null;
-    if ('webkitSpeechRecognition' in window) {
-      recognition = new webkitSpeechRecognition();
-      recognition.continuous = false;
+    if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognition = new SpeechRecognition();
+      recognition.lang = 'en-US'; // works fine for English/Hinglish
       recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+    } else {
+      // Browser not supported; disable mic buttons
+      divisionMicBtn.disabled = true;
+      multiplyMicBtn.disabled = true;
+      divisionMicBtn.title = "Speech input not supported in this browser.";
+      multiplyMicBtn.title = "Speech input not supported in this browser.";
     }
 
-    micDividend.addEventListener('click', () => {
-      if (!recognition) {
-        alert(languageSelect.value === 'hi'
-          ? 'इस ब्राउज़र में वॉइस इनपुट सपोर्ट नहीं है।'
-          : 'Voice input is not supported in this browser.');
-        return;
-      }
+    function extractTwoNumbers(text) {
+      // Very simple: grab any digits in the speech result
+      const nums = text.match(/\d+/g);
+      if (!nums || nums.length < 2) return null;
+      return [parseInt(nums[0], 10), parseInt(nums[1], 10)];
+    }
 
-      recognition.lang = languageSelect.value === 'hi' ? 'hi-IN' : 'en-IN';
+    function startDivisionSpeech() {
+      if (!recognition) return;
+      clearDivisionOutputs();
+      divisionError.style.display = 'none';
 
       recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
-        // Try to grab only digits from what was spoken
-        const digits = transcript.replace(/[^0-9]/g, '');
-        if (digits) {
-          dividendInput.value = digits;
-        } else {
-          // fallback: just put the raw text
-          dividendInput.value = transcript;
+        const transcript = event.results[0][0].transcript.toLowerCase();
+        const numbers = extractTwoNumbers(transcript);
+        if (!numbers) {
+          divisionError.style.display = 'block';
+          divisionError.textContent = "I couldn't hear two numbers. Try saying “100 divided by 4”.";
+          return;
         }
+        const [dividend, divisor] = numbers;
+        dividendInput.value = dividend;
+        divisorInput.value = divisor;
+        calculateDivision();
       };
 
-      recognition.onerror = () => {
-        alert(languageSelect.value === 'hi'
-          ? 'वॉइस इनपुट में कुछ समस्या आई।'
-          : 'There was a problem with voice input.');
+      recognition.onerror = (event) => {
+        divisionError.style.display = 'block';
+        divisionError.textContent = "Speech error: " + event.error;
       };
 
       recognition.start();
-    });
+    }
 
-    // ---------- INITIAL SETUP ----------
-    applyLanguage('en');
+    function startMultiplySpeech() {
+      if (!recognition) return;
+      clearMultiplyOutputs();
+      multiplyError.style.display = 'none';
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript.toLowerCase();
+        const numbers = extractTwoNumbers(transcript);
+        if (!numbers) {
+          multiplyError.style.display = 'block';
+          multiplyError.textContent = "I couldn't hear two numbers. Try saying “12 times 7”.";
+          return;
+        }
+        const [a, b] = numbers;
+        multiplicandInput.value = a;
+        multiplierInput.value = b;
+        calculateMultiply();
+      };
+
+      recognition.onerror = (event) => {
+        multiplyError.style.display = 'block';
+        multiplyError.textContent = "Speech error: " + event.error;
+      };
+
+      recognition.start();
+    }
+
+    divisionMicBtn.addEventListener('click', startDivisionSpeech);
+    multiplyMicBtn.addEventListener('click', startMultiplySpeech);
   </script>
 </body>
 </html>
