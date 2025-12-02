@@ -568,7 +568,7 @@
         divisionSubtitle: "Choose a number to share and how many equal groups you want.",
         dividendLabel: "Number to share (dividend)",
         divisorLabel: "Number of groups (divisor)",
-        divisionHint: "Try saying "100 divided by 4".",
+        divisionHint: "Try saying \"100 divided by 4\".",
         divisionResultLabel: "Result:",
         factorTitle: "All factor pairs of your number 🔍",
         factorSubtitle: "These are all the ways to multiply two whole numbers to reach your starting number.",
@@ -576,7 +576,7 @@
         multiplySubtitle: "Pick two numbers and see the multiplication. Great for practicing tables!",
         multiplicandLabel: "First number",
         multiplierLabel: "Second number",
-        multiplyHint: "Try saying "12 times 7".",
+        multiplyHint: "Try saying \"12 times 7\".",
         multiplyResultLabel: "Result:",
         multiplyDetailsTitle: "Understanding this multiplication 🔍",
         errors: {
@@ -612,7 +612,7 @@
         divisionSubtitle: "जिस संख्या को बाँटना है और कितने बराबर भाग चाहिए, वो चुनो।",
         dividendLabel: "जिस संख्या को बाँटना है",
         divisorLabel: "कितने भाग (ग्रुप)",
-        divisionHint: "ऐसे बोलकर देखो: "100 divided by 4".",
+        divisionHint: "ऐसे बोलकर देखो: \"100 divided by 4\".",
         divisionResultLabel: "उत्तर:",
         factorTitle: "तुम्हारी संख्या के सभी गुणनखंड 🔍",
         factorSubtitle: "ये सभी तरीके हैं जिनसे दो पूर्ण संख्या को गुणा करके तुम्हारी संख्या बनती है।",
@@ -620,7 +620,7 @@
         multiplySubtitle: "दो संख्याएँ चुनो और उनका गुणा देखो। पहाड़ा प्रैक्टिस के लिए बढ़िया!",
         multiplicandLabel: "पहली संख्या",
         multiplierLabel: "दूसरी संख्या",
-        multiplyHint: "ऐसे बोलकर देखो: "12 times 7".",
+        multiplyHint: "ऐसे बोलकर देखो: \"12 times 7\".",
         multiplyResultLabel: "उत्तर:",
         multiplyDetailsTitle: "इस गुणा को समझें 🔍",
         errors: {
@@ -929,7 +929,7 @@
         const numbers = extractTwoNumbers(transcript);
         if (!numbers) {
           divisionError.style.display = 'block';
-          divisionError.textContent = "I couldn't hear two numbers. Try saying "100 divided by 4".";
+          divisionError.textContent = "I couldn't hear two numbers. Try saying \"100 divided by 4\".";
           return;
         }
         const [dividend, divisor] = numbers;
@@ -956,7 +956,7 @@
         const numbers = extractTwoNumbers(transcript);
         if (!numbers) {
           multiplyError.style.display = 'block';
-          multiplyError.textContent = "I couldn't hear two numbers. Try saying "12 times 7".";
+          multiplyError.textContent = "I couldn't hear two numbers. Try saying \"12 times 7\".";
           return;
         }
         const [a, b] = numbers;
