@@ -233,6 +233,22 @@
       box-shadow: 0 3px 8px rgba(37, 99, 235, 0.4);
     }
 
+    button.clear-btn {
+      background: #f3f4f6;
+      color: #374151;
+      border: 1px solid #d1d5db;
+      border-radius: 999px;
+      padding: 8px 20px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.1s;
+    }
+
+    button.clear-btn:hover {
+      background: #e5e7eb;
+    }
+
     .mic-btn {
       background: #fef3c7;
       color: #92400e;
@@ -317,6 +333,32 @@
       background: #e5e7eb;
     }
 
+    .multiply-details {
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 10px 12px;
+      margin-top: 10px;
+      border: 1px dashed #d1d5db;
+      font-size: 0.9rem;
+    }
+
+    .multiply-details h3 {
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+
+    .multiply-details-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .detail-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
     .error {
       margin-top: 6px;
       color: #b91c1c;
@@ -352,9 +394,9 @@
     </header>
 
     <div class="mascot-card">
-      <div class="mascot-emoji">🤖</div>
+      <div class="mascot-emoji">🐨</div>
       <div class="mascot-text">
-        <div class="mascot-title" id="mascotTitle">Hi, I'm Digi!</div>
+        <div class="mascot-title" id="mascotTitle">Hi, I'm Lavender!</div>
         <div class="mascot-subtitle" id="mascotSubtitle">
           I help you explore numbers, division, and multiplication. ✨
         </div>
@@ -397,11 +439,14 @@
         <button class="calculate-btn" id="divisionCalcBtn" type="button">
           Calculate
         </button>
+        <button class="clear-btn" id="divisionClearBtn" type="button">
+          Clear
+        </button>
         <button class="mic-btn" id="divisionMicBtn" type="button">
           🎙 Speak division
         </button>
         <span class="hint-text" id="divisionHint">
-          Try saying “100 divided by 4”.
+          Try saying "100 divided by 4".
         </span>
       </div>
 
@@ -447,11 +492,14 @@
         <button class="calculate-btn" id="multiplyCalcBtn" type="button">
           Calculate
         </button>
+        <button class="clear-btn" id="multiplyClearBtn" type="button">
+          Clear
+        </button>
         <button class="mic-btn" id="multiplyMicBtn" type="button">
           🎙 Speak times table
         </button>
         <span class="hint-text" id="multiplyHint">
-          Try saying “12 times 7”.
+          Try saying "12 times 7".
         </span>
       </div>
 
@@ -463,6 +511,11 @@
           <span class="equation" id="multiplyEquation"></span>
         </div>
         <div class="result-sentence" id="multiplyStory"></div>
+      </div>
+
+      <div id="multiplyDetails" class="multiply-details" style="display:none;">
+        <h3 id="multiplyDetailsTitle">Understanding this multiplication 🔍</h3>
+        <div class="multiply-details-list" id="multiplyDetailsList"></div>
       </div>
     </section>
   </div>
@@ -480,6 +533,7 @@
     const dividendInput = document.getElementById('dividend');
     const divisorInput = document.getElementById('divisor');
     const divisionCalcBtn = document.getElementById('divisionCalcBtn');
+    const divisionClearBtn = document.getElementById('divisionClearBtn');
     const divisionMicBtn = document.getElementById('divisionMicBtn');
     const divisionError = document.getElementById('divisionError');
     const divisionResult = document.getElementById('divisionResult');
@@ -493,25 +547,28 @@
     const multiplicandInput = document.getElementById('multiplicand');
     const multiplierInput = document.getElementById('multiplier');
     const multiplyCalcBtn = document.getElementById('multiplyCalcBtn');
+    const multiplyClearBtn = document.getElementById('multiplyClearBtn');
     const multiplyMicBtn = document.getElementById('multiplyMicBtn');
     const multiplyError = document.getElementById('multiplyError');
     const multiplyResult = document.getElementById('multiplyResult');
     const multiplyEquation = document.getElementById('multiplyEquation');
     const multiplyStory = document.getElementById('multiplyStory');
+    const multiplyDetails = document.getElementById('multiplyDetails');
+    const multiplyDetailsList = document.getElementById('multiplyDetailsList');
 
     // Text elements for translation
     const translations = {
       en: {
         appTitle: "🪄 Math Magic",
         appSubtitle: "Practice division and times tables with a friendly math buddy.",
-        mascotTitle: "Hi, I'm Digi!",
+        mascotTitle: "Hi, I'm Lavender!",
         mascotSubtitle: "I help you explore numbers, division, and multiplication. ✨",
         languageLabel: "🌍 Language",
         divisionTitle: "Step 1: Enter your division problem ✏️",
         divisionSubtitle: "Choose a number to share and how many equal groups you want.",
         dividendLabel: "Number to share (dividend)",
         divisorLabel: "Number of groups (divisor)",
-        divisionHint: "Try saying “100 divided by 4”.",
+        divisionHint: "Try saying "100 divided by 4".",
         divisionResultLabel: "Result:",
         factorTitle: "All factor pairs of your number 🔍",
         factorSubtitle: "These are all the ways to multiply two whole numbers to reach your starting number.",
@@ -519,8 +576,9 @@
         multiplySubtitle: "Pick two numbers and see the multiplication. Great for practicing tables!",
         multiplicandLabel: "First number",
         multiplierLabel: "Second number",
-        multiplyHint: "Try saying “12 times 7”.",
+        multiplyHint: "Try saying "12 times 7".",
         multiplyResultLabel: "Result:",
+        multiplyDetailsTitle: "Understanding this multiplication 🔍",
         errors: {
           bothNumbers: "Please enter both numbers.",
           positive: "Please use positive numbers greater than zero."
@@ -534,19 +592,29 @@
         divisionTimesRemainder: (divisor, quotient, dividend) =>
           `Because there is a remainder, ${divisor} × ${quotient} is only ${divisor * quotient}, not ${dividend}.`,
         multiplyStory: (a, b, product) =>
-          `${a} × ${b} = ${product}.`
+          `${a} × ${b} = ${product}.`,
+        multiplyDetails: {
+          commutative: (a, b, product) => 
+            `📐 Commutative property: ${a} × ${b} = ${b} × ${a} = ${product}`,
+          repeated: (a, b) =>
+            `➕ Repeated addition: ${a} × ${b} means adding ${a} together ${b} times`,
+          skip: (a, b) =>
+            `🦘 Skip counting: Count by ${a}s, ${b} times`,
+          reverse: (product, a, b) =>
+            `↩️ Division check: ${product} ÷ ${a} = ${b} and ${product} ÷ ${b} = ${a}`
+        }
       },
       hi: {
         appTitle: "🪄 मैथ मैजिक",
         appSubtitle: "मज़ेदार तरीके से भाग और पहाड़े की प्रैक्टिस करें।",
-        mascotTitle: "नमस्ते, मैं डिगी हूँ!",
+        mascotTitle: "नमस्ते, मैं लैवेंडर हूँ!",
         mascotSubtitle: "मैं तुम्हें नंबर, भाग और गुणा सीखने में मदद करता हूँ। ✨",
         languageLabel: "🌍 भाषा",
         divisionTitle: "कदम 1: अपना भाग का सवाल लिखो ✏️",
         divisionSubtitle: "जिस संख्या को बाँटना है और कितने बराबर भाग चाहिए, वो चुनो।",
         dividendLabel: "जिस संख्या को बाँटना है",
         divisorLabel: "कितने भाग (ग्रुप)",
-        divisionHint: "ऐसे बोलकर देखो: “100 divided by 4”.",
+        divisionHint: "ऐसे बोलकर देखो: "100 divided by 4".",
         divisionResultLabel: "उत्तर:",
         factorTitle: "तुम्हारी संख्या के सभी गुणनखंड 🔍",
         factorSubtitle: "ये सभी तरीके हैं जिनसे दो पूर्ण संख्या को गुणा करके तुम्हारी संख्या बनती है।",
@@ -554,8 +622,9 @@
         multiplySubtitle: "दो संख्याएँ चुनो और उनका गुणा देखो। पहाड़ा प्रैक्टिस के लिए बढ़िया!",
         multiplicandLabel: "पहली संख्या",
         multiplierLabel: "दूसरी संख्या",
-        multiplyHint: "ऐसे बोलकर देखो: “12 times 7”.",
+        multiplyHint: "ऐसे बोलकर देखो: "12 times 7".",
         multiplyResultLabel: "उत्तर:",
+        multiplyDetailsTitle: "इस गुणा को समझें 🔍",
         errors: {
           bothNumbers: "कृपया दोनों संख्या लिखें।",
           positive: "कृपया शून्य से बड़ी धनात्मक संख्या का उपयोग करें।"
@@ -569,7 +638,17 @@
         divisionTimesRemainder: (divisor, quotient, dividend) =>
           `क्योंकि बाकी बचता है, इसलिए ${divisor} × ${quotient} = ${divisor * quotient} है, ${dividend} नहीं।`,
         multiplyStory: (a, b, product) =>
-          `${a} × ${b} = ${product}।`
+          `${a} × ${b} = ${product}।`,
+        multiplyDetails: {
+          commutative: (a, b, product) => 
+            `📐 क्रमविनिमेय गुण: ${a} × ${b} = ${b} × ${a} = ${product}`,
+          repeated: (a, b) =>
+            `➕ बार-बार जोड़ना: ${a} × ${b} का मतलब है ${a} को ${b} बार जोड़ना`,
+          skip: (a, b) =>
+            `🦘 छलांग गिनती: ${a} की छलांग से ${b} बार गिनो`,
+          reverse: (product, a, b) =>
+            `↩️ भाग से जाँच: ${product} ÷ ${a} = ${b} और ${product} ÷ ${b} = ${a}`
+        }
       }
     };
 
@@ -592,7 +671,8 @@
       multiplicandLabel: 'multiplicandLabel',
       multiplierLabel: 'multiplierLabel',
       multiplyHint: 'multiplyHint',
-      multiplyResultLabel: 'multiplyResultLabel'
+      multiplyResultLabel: 'multiplyResultLabel',
+      multiplyDetailsTitle: 'multiplyDetailsTitle'
     };
 
     function applyLanguage(lang) {
@@ -637,6 +717,12 @@
       divisionStory.textContent = '';
       divisionTimes.textContent = '';
       factorList.innerHTML = '';
+    }
+
+    function clearDivisionInputs() {
+      dividendInput.value = '';
+      divisorInput.value = '';
+      clearDivisionOutputs();
     }
 
     function calculateDivision() {
@@ -719,6 +805,7 @@
     }
 
     divisionCalcBtn.addEventListener('click', calculateDivision);
+    divisionClearBtn.addEventListener('click', clearDivisionInputs);
     dividendInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') calculateDivision();
     });
@@ -731,8 +818,16 @@
       multiplyError.style.display = 'none';
       multiplyError.textContent = '';
       multiplyResult.style.display = 'none';
+      multiplyDetails.style.display = 'none';
       multiplyEquation.textContent = '';
       multiplyStory.textContent = '';
+      multiplyDetailsList.innerHTML = '';
+    }
+
+    function clearMultiplyInputs() {
+      multiplicandInput.value = '';
+      multiplierInput.value = '';
+      clearMultiplyOutputs();
     }
 
     function calculateMultiply() {
@@ -759,9 +854,45 @@
       multiplyEquation.textContent = eq;
       multiplyStory.textContent = t.multiplyStory(a, b, product);
       multiplyResult.style.display = 'block';
+
+      // Add detailed explanations
+      multiplyDetailsList.innerHTML = '';
+      
+      // Commutative property
+      const detail1 = document.createElement('div');
+      detail1.className = 'detail-row';
+      detail1.innerHTML = `<span class="equation-pill">${t.multiplyDetails.commutative(a, b, product)}</span>`;
+      multiplyDetailsList.appendChild(detail1);
+
+      // Repeated addition
+      const detail2 = document.createElement('div');
+      detail2.className = 'detail-row';
+      const additionSeq = Array(Math.min(b, 10)).fill(a).join(' + ') + (b > 10 ? ' + ...' : '');
+      detail2.innerHTML = `<span class="equation-pill">${t.multiplyDetails.repeated(a, b)}</span><br><span style="margin-left: 20px; font-size: 0.85rem;">${additionSeq} = ${product}</span>`;
+      multiplyDetailsList.appendChild(detail2);
+
+      // Skip counting
+      if (b <= 15) {
+        const detail3 = document.createElement('div');
+        detail3.className = 'detail-row';
+        const skipSeq = Array.from({length: b}, (_, i) => a * (i + 1)).join(', ');
+        detail3.innerHTML = `<span class="equation-pill">${t.multiplyDetails.skip(a, b)}</span><br><span style="margin-left: 20px; font-size: 0.85rem;">${skipSeq}</span>`;
+        multiplyDetailsList.appendChild(detail3);
+      }
+
+      // Division check
+      if (product > 0) {
+        const detail4 = document.createElement('div');
+        detail4.className = 'detail-row';
+        detail4.innerHTML = `<span class="equation-pill">${t.multiplyDetails.reverse(product, a, b)}</span>`;
+        multiplyDetailsList.appendChild(detail4);
+      }
+
+      multiplyDetails.style.display = 'block';
     }
 
     multiplyCalcBtn.addEventListener('click', calculateMultiply);
+    multiplyClearBtn.addEventListener('click', clearMultiplyInputs);
     multiplicandInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') calculateMultiply();
     });
@@ -802,7 +933,7 @@
         const numbers = extractTwoNumbers(transcript);
         if (!numbers) {
           divisionError.style.display = 'block';
-          divisionError.textContent = "I couldn't hear two numbers. Try saying “100 divided by 4”.";
+          divisionError.textContent = "I couldn't hear two numbers. Try saying "100 divided by 4".";
           return;
         }
         const [dividend, divisor] = numbers;
@@ -829,7 +960,7 @@
         const numbers = extractTwoNumbers(transcript);
         if (!numbers) {
           multiplyError.style.display = 'block';
-          multiplyError.textContent = "I couldn't hear two numbers. Try saying “12 times 7”.";
+          multiplyError.textContent = "I couldn't hear two numbers. Try saying "12 times 7".";
           return;
         }
         const [a, b] = numbers;
